@@ -1,0 +1,67 @@
+user
+    login
+    register
+    logout
+    get info
+    change pass
+    update thong tin
+
+work plate
+    create
+    get info
+    
+bien nhan
+    create 
+    get info
+    delete
+    return
+    
+address detail
+    get province
+    get district
+    get ward
+
+notification
+    create
+    show
+    update
+
+
+data
+password: 123456
+
+admin:
+  admin@magicpost.com
+
+diem giao dich dvh:
+  manageDvh@magicpost.com
+  staffDvh@magicpost.com
+  shipperDvh@magicpost.com
+diem chung chuyen dvh
+  managetpDvh@magicpost.com
+  stafftpDvh@magicpost.com
+
+diem chung chuyen cau giay
+  managetpcg@magicpost.com
+  stafftpcg@magicpost.com
+
+diem chung chuyen HN
+  managetphn@magicpost.com
+  stafftphn@magicpost.com
+
+diem chung chuyen bn
+  managetpbn@magicpost.com
+  stafftpbn@magicpost.com
+
+diem chung chuyen tp bn
+  managetpta@magicpost.com
+  stafftpta@magicpost.com
+
+diem chung chuyen dai phuc
+  managetpdp@magicpost.com
+  stafftpdp@magicpost.com
+
+diem giao dich dai phuc
+  managegddp@magicpost.com
+  staffgddp@magicpost.com
+  shippergddp@magicpost.com

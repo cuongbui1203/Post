@@ -1,0 +1,57 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  color-scheme: light dark;
+  /* background-color: #6da1ab; */
+  /* color: rgba(255, 255, 255, 0.87);
+  background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  --color: white;
+}
+/* #register > div > div > div > div > div > div > div {
+  background-color: transparent;
+  border: none;
+} */
+/* 
+#register > div > div > div > div > div > div > div:focus { */
+/* background-color: transparent; */
+/* border: none;
+} */
+/* #register
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div
+  > span.ant-select-selection-placeholder {
+  color: var(--color);
+} */
+/* #register ::-ms-input-placeholder { */
+/* Edge 12-18 */
+/* color: var(--color) !important;
+} */
+/* #register ::placeholder {
+  color: var(--color) !important;
+} */
+/* #register
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div
+  > span.ant-select-selection-placeholder {
+  color: var(--color);
+} */

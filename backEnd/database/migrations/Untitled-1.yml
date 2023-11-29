@@ -1,0 +1,114 @@
+# tinh / TP TW
+# tp / quan huyen / thi xa
+# phuong / xa / thi tran
+# more
+
+hanh chinh cap 1: provinces 
+hanh chinh cap 2: districts
+hanhf chinhs cap 3: wards
+
+
+khach:
+  - id
+  - ten
+  - sdt
+  - diachi
+
+loai:
+  - id
+  - name
+
+bien_nhan: 
+  - id
+  - id_nguoiGui
+  - tenNgGui
+  - diachiNgGui
+  - sdtNgGui
+  - id_loai
+  - idAddress1
+  - idAddress2
+  - idAddress3
+  - address
+  - nd: {
+    triGia: { sl, tri_gia, note},
+    dvu
+  }
+  - ngayGui
+  - tenNgNhan
+  - diachiNgNhan
+  - sdtNgNHan
+  - khoiLuong
+  - chiDanNghiepVu
+  - ngayNhan
+
+
+
+if address 3 1 = address 3 2
+  dua cho shipper 
+else if address 2 1 = address 2 2 
+  chuyen len cho diem trung chuyen tai address2 
+  chuyen lai cho diem chung chuyen tai address 3 2
+  dua cho shipper
+else if address 1 1 = address 1 2 
+  chuyen len cho diem chung chuyen tai address 2 1
+  chuyen len cho diem chung chuyen tai address 1 1
+  chuyen ve cho diem chung chuyen tai address 2 2
+  chuyen ve cho diem chung chuyen tai address 3 2
+  dua cho shipper
+else 
+  chuyen len cho diem chung chuyen tai address 2 1
+  chuyen len cho diem chung chuyen tai address 1 1
+  chuyen cho diem chung chuyen tai address 1 2
+  chuyen ve cho diem chung chuyen tai address 2 2
+  chuyen ve cho diem chung chuyen tai address 3 2
+  dua cho shipper
+
+notification:
+  - id
+  - idBienNhan
+  - history
+  - status
+  - note
+
+
+27
+256
+9181
+
+
+27
+256
+9182
+
+
+
+9182 256 9181
+
+
+workPlate:
+  - name
+  - id
+  - idAddress
+  - idType
+
+
+trang thai
+
+user:
+  - name
+  - email
+  - sdt
+  - detail
+  nhanvien:
+  - roleId
+  - workPlate
+
+notification:
+  id 
+  type
+  idDh
+  idWP
+  status
+  created
+  updated
+  

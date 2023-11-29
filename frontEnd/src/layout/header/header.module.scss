@@ -1,0 +1,29 @@
+.header_component {
+  width: 100%;
+  height: 3rem;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  // padding-right: 20px;
+  .header_logo {
+    display: flex;
+    align-self: center;
+    .app_name {
+      padding: 15px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .header_login {
+    margin-right: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    &_icon {
+      padding: 5px;
+    }
+  }
+}
