@@ -18,10 +18,11 @@ class WorkPlateController extends Controller
     public function getAllWP(Request $request)
     {
         $add = new AddressDetailController();
-        $wps = WorkPlate::select('id', 'name', DB::raw('address_id as address'))->get();
+        $wps = WorkPlate::select('id', 'name', DB::raw("type_id"), DB::raw('address_id as address'))->get();
         $res = array();
         foreach($wps as $e){
             $e['address'] = $add->getAddress($e['address']);
+            $e->type->name;
             array_push(
                 $res, 
                 $e

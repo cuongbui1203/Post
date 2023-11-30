@@ -27,6 +27,7 @@ export default function HeaderComponent() {
     dispatch(setLoginState(false));
     dispatch(setUser(null));
     dispatch(setToken(""));
+    navigate("/");
   };
   useEffect(() => {
     if (state.login && state.user) {

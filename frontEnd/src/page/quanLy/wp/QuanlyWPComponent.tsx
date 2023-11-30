@@ -51,6 +51,7 @@ function QuanLyWPComponent() {
       console.log(res);
       res.data.data.map(
         (e: {
+          type: { name: string } | undefined;
           name: string;
           address: {
             address: string;
@@ -63,6 +64,7 @@ function QuanLyWPComponent() {
           const t: Data = {
             name: e.name,
             type: "workPlate",
+            type2: e.type?.name,
             detail: `${e.address.address}, ${e.address.ward}, ${e.address.district}, ${e.address.province}`,
             uuid: e.id,
           };

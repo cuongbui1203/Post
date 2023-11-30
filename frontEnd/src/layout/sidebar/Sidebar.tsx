@@ -2,7 +2,7 @@ import { Button } from "antd";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../../state/hooks";
-import { UserRole } from "../../enums/enum";
+import { TypeEnum, UserRole } from "../../enums/enum";
 
 const siderStyle: React.CSSProperties = {
   textAlign: "center",
@@ -45,62 +45,105 @@ export default function Sidebar() {
     if (state.user) {
       console.log(state.user);
       const user = state.user;
+      const typeWP = state.workPlate.type_id;
       switch (user.role.name) {
         case UserRole.Employee:
-          setContent(
-            <>
-              <Button
-                style={buttonStyle}
-                onClick={() => {
-                  navigate("/bien_nhan/create");
-                }}
-              >
-                Tao Bien Nhan Moi
-              </Button>
-              <Button style={buttonStyle} onClick={() => navigate("/thong_ke")}>
-                Thong ke
-              </Button>
-              <Button
-                style={buttonStyle}
-                onClick={() => navigate("/toTheTransport")}
-              >
-                chuyển cho chung chuyển
-              </Button>
-              <Button
-                style={buttonStyle}
-                onClick={() => navigate("/bien_nhan/confirm/incoming")}
-              >
-                Xác nhận dơn hàng đã đến
-              </Button>
-              <Button
-                style={buttonStyle}
-                onClick={() => navigate("/bien_nhan/confirm")}
-              >
-                Hoàn thành hoặc huỷ
-              </Button>
-            </>
-          );
+          {
+            const contentTg =
+              typeWP === TypeEnum.TransactionPoint ? (
+                <>
+                  <Button
+                    style={buttonStyle}
+                    onClick={() => {
+                      navigate("/bien_nhan/create");
+                    }}
+                  >
+                    Tạo biên nhận mới
+                  </Button>
+                  <Button
+                    style={buttonStyle}
+                    onClick={() => navigate("/thong_ke")}
+                  >
+                    Thống kê
+                  </Button>
+                  <Button
+                    style={buttonStyle}
+                    onClick={() => navigate("/toTheTransport")}
+                  >
+                    Chuyển cho chung chuyển
+                  </Button>
+                  <Button
+                    style={buttonStyle}
+                    onClick={() => navigate("/bien_nhan/confirm/incoming")}
+                  >
+                    Xác nhận dơn hàng đã đến
+                  </Button>
+                  <Button
+                    style={buttonStyle}
+                    onClick={() => navigate("/bien_nhan/confirm")}
+                  >
+                    Hoàn thành hoặc huỷ
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    style={buttonStyle}
+                    onClick={() => {
+                      navigate("/bien_nhan/create");
+                    }}
+                  >
+                    Tạo biên nhận mới
+                  </Button>
+
+                  <Button
+                    style={buttonStyle}
+                    onClick={() => navigate("/toTheTransport")}
+                  >
+                    Chuyển cho chung chuyển
+                  </Button>
+                  <Button
+                    style={buttonStyle}
+                    onClick={() => navigate("/bien_nhan/confirm/incoming")}
+                  >
+                    Xác nhận dơn hàng đã đến
+                  </Button>
+                </>
+              );
+            setContent(contentTg);
+          }
           break;
 
         case UserRole.Boss:
-        case UserRole.Manager:
           setContent(
             <>
               <Button
                 style={buttonStyle}
                 onClick={() => navigate("/quanLy/users")}
               >
-                quan ly tai khoan
+                Quản lý tài khoản
               </Button>
 
               <Button
                 style={buttonStyle}
                 onClick={() => navigate("/quanLy/workPlates")}
               >
-                quan ly noi lam viec
+                Quản lý nơi làm việc
               </Button>
               <Button style={buttonStyle} onClick={() => navigate("/thong_ke")}>
-                Thong ke
+                Thống kê
+              </Button>
+              <Button style={buttonStyle} onClick={onRegisterBtn}>
+                Đăng ký tài khoản
+              </Button>
+            </>
+          );
+          break;
+        case UserRole.Manager:
+          setContent(
+            <>
+              <Button style={buttonStyle} onClick={() => navigate("/thong_ke")}>
+                Thống kê
               </Button>
               <Button style={buttonStyle} onClick={onRegisterBtn}>
                 Đăng ký tài khoản

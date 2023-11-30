@@ -13,6 +13,7 @@ interface Data {
   type: "workPlate" | "user";
   detail: string;
   uuid?: string;
+  type2?: string;
 }
 interface Props {
   data?: Data[];
@@ -20,10 +21,10 @@ interface Props {
 function ListItem(props: Props) {
   const { data } = props;
   const [content, setContent] = useState<ReactElement>(<></>);
+  const navigate = useNavigate();
 
   const { confirm } = Modal;
   const handleReload = () => {
-    const navigate = useNavigate();
     navigate(0);
   };
   const handleDelete = async (id: string, type: "user" | "workPlate") => {
@@ -64,6 +65,15 @@ function ListItem(props: Props) {
       icon: <ExclamationCircleFilled />,
       // content: "Some descriptions",
       onOk() {
+        const handle2 = async () => {
+          const res = await net.put("/updateRole", null, {
+            params: {
+              id: id,
+            },
+          });
+          console.log(res.data.success);
+        };
+        handle2();
         console.log(id);
       },
       onCancel() {
@@ -83,8 +93,8 @@ function ListItem(props: Props) {
             <UserIcon size={50} />
           ) : (
             <img
-              width="15px"
-              src="https://giaohangtietkiem.vn/wp-content/plugins/ghtk-post-offices/assets/img/icon-search.png"
+              style={{ height: "100px", width: "130px" }}
+              src="https://cache.giaohangtietkiem.vn/admin/files/uploads/images/post_ofices/2018/07/02/5b3a27da-bc30-483c-9741-a4db0a0a026e.png"
             />
           );
         const changePermission =
@@ -96,6 +106,15 @@ function ListItem(props: Props) {
           ) : (
             <></>
           );
+        const detailContent = e.type2 ? (
+          <>
+            <b>{e.type2}</b>
+            <br />
+            {e.detail}
+          </>
+        ) : (
+          <>{e.detail}</>
+        );
         res.push(
           <Card>
             <div style={{ width: "100%", maxWidth: "500px" }}>
@@ -112,7 +131,7 @@ function ListItem(props: Props) {
               <div style={{ display: "flex", flexDirection: "row" }}>
                 <div style={{ paddingRight: 10 }}>{icon}</div>
                 <div>
-                  <div style={{ wordWrap: "break-word" }}>{e.detail}</div>
+                  <div style={{ wordWrap: "break-word" }}>{detailContent}</div>
                   <div>
                     {changePermission}
                     <Button
